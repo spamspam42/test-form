@@ -16,21 +16,24 @@
 
 
 
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzhaAZKkUcvxQFXzLBrq0LBtcDtgFuChWi1nRGpQz2TVRlj78cEe2hqE5j9Su4WOLaC/exec'
-    const form = document.forms['submit-to-google-sheet']
-
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => window.location.href = "/test.html")
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
 
 
 
 
 </body>
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzhaAZKkUcvxQFXzLBrq0LBtcDtgFuChWi1nRGpQz2TVRlj78cEe2hqE5j9Su4WOLaC/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => window.location.href = "/test.html")
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
 
 </html>
