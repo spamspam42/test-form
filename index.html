@@ -33,7 +33,7 @@
 
       </div>
       <!-- Form -->
-      <form id="bb-form-490" name="submit-to-google-sheet" action="https://www.google.de/?hl=de" method="POST" netlify>
+      <form id="bb-form-490" name="submit-to-google-sheet" action='https://www.google.de/?hl=de' method="post" netlify>
         <label class="bb-label">
           Name
           <input class="bb-input" required type="text" id="name-490" name="name" placeholder="Vorname Nachname">
@@ -54,12 +54,12 @@
 
 
       <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxqGPmM4IwnHezYW9YOhCd4P2gX2sTk1NQvQBeK6EVllQP5lw8UVEWTR6vTs2YENGNX/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxnpJwT8KT_MtQ3Qmczl2tD34vs2nOmD-XirY7udlsIXjcfdfywrntIA0zsuoEv3hrNxg/exec'
         const form = document.forms['submit-to-google-sheet']
 
         form.addEventListener('submit', e => {
           e.preventDefault()
-          fetch('https://script.google.com/macros/s/AKfycbxqGPmM4IwnHezYW9YOhCd4P2gX2sTk1NQvQBeK6EVllQP5lw8UVEWTR6vTs2YENGNX/exec', { method: 'POST', body: new FormData(form) })
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message))
         })
