@@ -12,7 +12,7 @@
   <!--                Contact Form                  -->
   <!-- ============================================ -->
 
-   <section id="bb-contact-490">
+  <section id="bb-contact-490">
     <div class="bb-container">
       <!-- Contact Info -->
       <div class="bb-content">
@@ -33,26 +33,39 @@
 
       </div>
       <!-- Form -->
-      <form id="bb-form-490" name="Kontakt"
-        action="https://script.google.com/macros/s/AKfycbxnpJwT8KT_MtQ3Qmczl2tD34vs2nOmD-XirY7udlsIXjcfdfywrntIA0zsuoEv3hrNxg/exec"
-        method="post" netlify>
+      <form id="bb-form-490" name="submit-to-google-sheet" action="/index.html" method="post" netlify>
         <label class="bb-label">
           Name
-          <input class="bb-input" required type="text" id="name-490" name="Name" placeholder="Vorname Nachname">
+          <input class="bb-input" required type="text" id="name-490" name="name" placeholder="Vorname Nachname">
         </label>
         <label class="bb-label">
           Email
-          <input class="bb-input" required type="text" id="email-490" name="Email" placeholder="name@firma.de">
+          <input class="bb-input" required type="text" id="email-490" name="email" placeholder="name@firma.de">
         </label>
         <label class="bb-label">
           Telefon
-          <input class="bb-input" required type="text" id="phone-490" name="Telefon" placeholder="+49 (1234) 987-6543">
+          <input class="bb-input" required type="text" id="phone-490" name="phone" placeholder="+49 (1234) 987-6543">
         </label>
 
-        <button class="button-solid" type="submit"
-          onclick="window.location.href = 'https://bitte-ein-byte.com/fragen';">Kostenlose Beratung
+        <button class="button-solid" type="submit">Kostenlose Beratung
           anfordern</button>
       </form>
+
+
+
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxqGPmM4IwnHezYW9YOhCd4P2gX2sTk1NQvQBeK6EVllQP5lw8UVEWTR6vTs2YENGNX/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
     </div>
   </section>
 
